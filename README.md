@@ -1,20 +1,35 @@
-**Simulation and Reanalysis Codes for “Emergent Language-Like Communication in Embodied Multi-Agent Populations”**
+This package contains the simulation and reanalysis code for:
 
-1. `darca_v24_direct_rewrite_source.py`
-   Core implementation of the individual autonomous agent. This file defines the agent-level regulatory variables, internal state updates, embodied valuation variables, agency-related evidence, memory dynamics, and basic closed-loop computation used by the simulation.
+Environment-Conditioned Organization of Anonymous Signal Channels in Embodied Artificial Agents
 
-2. `darca_true_3d_integrated_task_battery_v11.py`
-   TRUE 3D environment and integrated task framework. This file defines the three-dimensional grid world, environmental pressure encoding, movement rules, physical-risk consequences, task contexts, and the interface between the autonomous agent and the embodied environment.
+The code can reproduce the main population simulation, the Phase 1–7 reanalysis, the manuscript figures, and the live signal-pathway ablation analysis.
 
-3. `run_v11_population_language_emergence_v3.py`
-   Main population-level simulation runner. This file executes the eight-agent population simulation across environmental scenarios, task contexts, communication conditions, seeds, and 16,000-step episodes. It generates the raw signal-event, signal-delivery, receiver-action, sequence, agent-summary, and population-summary logs used in the analyses.
+Files
+darca_v24_direct_rewrite_source.py
+Defines the individual autonomous agent, including internal regulation, embodied valuation, memory, and closed-loop state updates.
+darca_true_3d_integrated_task_battery_v11.py
+Defines the TRUE 3D environment, task contexts, environmental pressures, movement rules, and physical consequences.
+run_v11_population_language_emergence_v3.py
+Runs the main eight-agent population simulation across environmental scenarios, task contexts, communication conditions, seeds, and 16,000-step episodes.
+run_16000_language_acquisition_simulation.sh
+Shell launcher for the full 16,000-step population simulation. It creates output folders, records progress logs, and supports resumable execution.
+reanalysis_population_signal_system_all_in_one.py
+Reproduces the fixed Phase 1–7 analyses from the raw simulation logs and generates manuscript-ready CSV files and Figures 1–6.
+run_v11_signal_pathway_ablation_causal_validation.py
+Runs live signal-pathway ablation simulations. It tests NO_SIGNAL_BIAS, NO_RECEIVER_MEMORY_UPDATE, ONLINE_CHANNEL_SHUFFLED, and NO_SENDER_PREFERENCE against FULL_INTERACTIVE.
+README_REPRODUCIBILITY.md
+This file.
+What the code does
 
-4. `run_16000_language_acquisition_simulation.sh`
-   Shell launcher for the full 16,000-step simulation. This script runs the population simulation in scenario-level shards, creates the required output directories, records progress logs, and supports resumable execution.
+The code tests whether anonymous non-semantic signal channels become organized in an embodied multi-agent population.
 
-5. `reanalysis_population_signal_system_all_in_one.py`
-   Integrated reanalysis script for the reported results. This file reads the raw simulation logs and reproduces the fixed Phase 1–7 analyses: environmental channel differentiation, sender-side grounding association, receiver-side action relation, temporal development, population-level sharing, sequence dependence, and null/matched-control evaluation. It also generates the manuscript-ready CSV summaries and Figures 1–6.
+It can reproduce:
 
-6. `README_REPRODUCIBILITY.md`
-   Reproducibility guide. This file explains the required files, software environment, execution order, command-line examples, expected outputs, and interpretation of the main result files.
-
+environmental channel differentiation
+sender-side grounding association
+receiver action-class relation
+temporal development
+population-level sharing
+sequence dependence
+null and matched-control analyses
+live signal-pathway ablations
